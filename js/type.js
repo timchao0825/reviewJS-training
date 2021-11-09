@@ -1,3 +1,4 @@
+console.log('type js init')
 // ----
 // basic type
 // ----
@@ -31,3 +32,26 @@ var str = 'string'
 // ----
 // truthy falsy
 // ----
+console.group('Boolean console')
+console.log(Boolean()) // false
+console.log(Boolean(0)) // false
+console.log(Boolean(null)) // false
+console.log(Boolean(undefined)) // false
+console.groupEnd() // false
+// ! true to false , false to true
+// !! = Boolean()
+console.group('!! console falsy')
+console.log(' Boolean "" ',Boolean(""))
+console.log(' !!"" ',!!"")
+console.log(' !!0 ',!!0)
+console.log(' !!null ',!!null)
+console.log(' !!undefined ',!!undefined)
+console.log(' !!NaN ',!!NaN)
+console.groupEnd()
+
+console.group('!! console truthy')
+console.log(' !! "false" ' , !!"false")
+console.log(' !!1 ', !!1)
+console.log(' !!{} ', !!{})
+console.log(' !![] ', !![])
+console.groupEnd()
