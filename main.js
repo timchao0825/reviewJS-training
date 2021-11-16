@@ -3,4 +3,5 @@
 // import './js/function.js'
 // import './js/trycatch.js'
 // import './js/switchelse.js'
-import './js/scopeChain.js'
+// import './js/scopeChain.js'
+import './js/closure.js'
