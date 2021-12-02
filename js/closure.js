@@ -1,34 +1,34 @@
 console.log('closure js init')
 
 // var a
-// function outer(){
-//     var b = 100
-//     function inner(){
-//         console.log(b)
-//     }
-//     a = inner
+// function outer() {
+//   var b = 100
+//   function inner() {
+//     console.log(b)
+//   }
+//   a = inner
 // }
 // outer()
 // a()
 
-// var name = "a";
+// var name = 'a'
 // var obj = {
-//     name: "b",
-//     getName: function(){
-//         var thisObj = this // b
-//         return function() {
-//             return thisObj.name
-//         }
+//   name: 'b',
+//   getName: function () {
+//     var thisObj = this
+//     return function () {
+//       return thisObj.name // b
 //     }
+//   }
 // }
 // var result = obj.getName()
 // console.log(result()) // a
 
-// var add = (function(){
-//     var count = 0;
-//     return function(){
-//         return count += 1;
-//     }
+// var add = (function () {
+//   var count = 0
+//   return function () {
+//     return (count += 1)
+//   }
 // })()
 // console.log(add())
 
@@ -62,8 +62,8 @@ console.log('closure js init')
 // }
 
 // solution 4 = es6 let
-for (let i = 0; i < 5; i++) {
-    setTimeout(function(){
-        console.log(i)
-    }, i * 1000 );
-}
+// for (let i = 0; i < 5; i++) {
+//   setTimeout(function () {
+//     console.log(i)
+//   }, i * 1000)
+// }
