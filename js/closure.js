@@ -9,7 +9,7 @@ console.log('closure js init')
 //   a = inner
 // }
 // outer()
-// a()
+// a() // 100
 
 // var name = 'a'
 // var obj = {
@@ -33,21 +33,21 @@ console.log('closure js init')
 // console.log(add())
 
 // for (var i = 0; i < 5; i++) {
-//     setTimeout(function(){
-//         console.log(i)
-//     }, i * 1000);
+//   setTimeout(function () {
+//     console.log(i)
+//   }, i * 1000)
 // }
 
 // solution 1 = IIFE
 // for (var i = 0; i < 5; i++) {
-//     (function(i){
-//         setTimeout(function(){
-//             console.log(i)
-//         }, i * 1000);
-//     })(i)
+//   ;(function (i) {
+//     setTimeout(function () {
+//       console.log(i)
+//     }, i * 1000)
+//   })(i)
 // }
 
-// solution 2 = pass value to settimeout
+// solution 2 = pass value to setTimeout
 // for (var i = 0; i < 5; i++) {
 //     setTimeout(function(i){
 //         console.log(i)

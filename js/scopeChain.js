@@ -2,6 +2,13 @@ console.log('scope chain js init')
 
 // var a = 1
 // ;(function () {
+//   a = 100
+//   console.log(a)
+// })()
+// console.log(a)
+
+// var a = 1
+// ;(function () {
 //   var a = 100
 //   console.log('a => ', a) // 100
 // })()
@@ -14,12 +21,12 @@ console.log('scope chain js init')
 // })()
 // console.log('b => ', b) // 3
 
-var c = 4
-;(function (c) {
-  c = 100
-  console.log(c) // 100
-})(c)
-console.log(c) // 4
+// var c = 4
+// ;(function (c) {
+//   c = 100
+//   console.log(c) // 100
+// })(c)
+// console.log(c) // 4
 
 // var d = 4;
 // function test(d){
@@ -37,8 +44,9 @@ console.log(c) // 4
 //   }
 //   fu()
 //   a = 'School'
+//   console.log(a) // school
 // }
 
 // var a = 'Mary'
 // sayHi(a)
-// console.log(a)
+// console.log(a) // Mary

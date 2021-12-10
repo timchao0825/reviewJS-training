@@ -11,12 +11,26 @@ console.log('curring js init')
 // console.log(cube(5, 2, 6))
 
 // curring
-function cube(width) {
-  return function (height) {
-    return function (depth) {
-      return width * height * depth
-    }
+// function cube(width) {
+//   return function (height) {
+//     return function (depth) {
+//       return width * height * depth
+//     }
+//   }
+// }
+
+// console.log(cube(10)(10)(10))
+
+function test(val) {
+  console.log(val)
+  const testVal = 'test' + val
+  return function (callback) {
+    callback(testVal)
   }
 }
+function showResult(result) {
+  console.log('The result is: ' + result)
+}
 
-console.log(cube(10)(10)(10))
+const setTestVal = test('123')
+setTestVal(showResult)
