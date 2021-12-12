@@ -5,4 +5,6 @@
 // import './js/switchelse.js'
 // import './js/scopeChain.js'
 // import './js/closure.js'
-import './js/currying.js'
+// import './js/currying.js'
+// import './js/hoisting.js'
+import './js/useStrict.js'
