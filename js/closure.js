@@ -30,7 +30,15 @@ console.log('closure js init')
 //     return (count += 1)
 //   }
 // })()
-// console.log(add())
+// function add() {
+//   var count = 0
+//   return function () {
+//     return (count += 1)
+//   }
+// }
+// var temp = add()
+// console.log(temp)
+// console.log(temp)
 
 // for (var i = 0; i < 5; i++) {
 //   setTimeout(function () {

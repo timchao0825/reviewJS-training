@@ -7,4 +7,7 @@
 // import './js/closure.js'
 // import './js/currying.js'
 // import './js/hoisting.js'
-import './js/useStrict.js'
+// import './js/useStrict.js'
+// import './js/handleNumber.js'
+// import './js/codingStyle.js'
+import './js/objectOriented.js'
