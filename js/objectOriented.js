@@ -32,19 +32,32 @@ console.log('object oriented js init')
 // personB.showName()
 // personB.showGender()
 
-function CreatePerson(name , gender){ // 工廠方式
-    this.gender = gender
-    this.name = name
-    this.showName = function(){
-        console.log('my name ' + this.name)
-    }
-    this.showGender = function(){
-        console.log('my gender ' + this.gender)
-    }
-    
+function CreatePerson(name, gender) {
+  // 工廠方式
+  this.name = name
+  this.gender = gender
+  this.showName = function () {
+    console.log('my name ' + this.name)
+  }
+  this.showGender = function () {
+    console.log('my gender ' + this.gender)
+  }
 }
 
-var newPersonA = new CreatePerson('mike' , 'male')
-var newPersonB = new CreatePerson('Jane' , 'female')
+var newPersonA = new CreatePerson('mike', 'male')
+var newPersonB = new CreatePerson('Jane', 'female')
 newPersonA.showName()
 newPersonB.showName()
+console.log(newPersonA)
+console.log(newPersonB)
+
+// new or not new
+
+// function show() {
+//   console.log(this)
+// }
+// // object show
+// new show()
+
+// // undefined
+// show()

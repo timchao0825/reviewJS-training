@@ -10,5 +10,6 @@
 // import './js/useStrict.js'
 // import './js/handleNumber.js'
 // import './js/codingStyle.js'
-import './js/objectOriented.js'
+// import './js/objectOriented.js'
+import './js/prototype.js'
 // import './js/this.js'
