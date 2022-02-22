@@ -101,6 +101,66 @@ var ten = '10'
 // ---
 // nick.name = 'test'
 // nick.showName() // 會變為test
-nick.showBlood() // b type
+// nick.showBlood() // b type
 // nick.blood = 'c type'
 // nick.showBlood() // error - read only
+
+// ---
+// 實字模式
+// ---
+var test = function () {}
+var cat = {} // = new object
+// console.log(test)
+cat.name = 'tom'
+cat.getName = function () {
+  return this.name
+}
+
+// also like
+// var cat = {
+//   name: 'tom',
+//   getName: function () {
+//     return this.name
+//   }
+// }
+
+// let json = {
+//   name: 'tom',
+//   show: function () {
+//     console.log(this.name)
+//   },
+//   empty: undefined,
+//   nothing: null
+// }
+// let jsonString = JSON.stringify(json)
+// console.log(jsonString)
+// let jsonObject = JSON.parse(jsonString)
+// console.log(jsonObject)
+
+// ---
+// 命名衝突
+// ---
+// function a() {
+//   console.log('a')
+// }
+
+// function a() {
+//   console.log('b')
+// }
+// a() // b , strict will cause error
+
+// 利用 object 命名空間
+let ns = {}
+ns.common = {}
+ns.custom = {}
+
+ns.common.a = function () {
+  console.log('a')
+}
+
+ns.custom.a = function () {
+  console.log('b')
+}
+
+// ns.common.a() // a
+// ns.custom.a() // b
