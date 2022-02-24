@@ -1,4 +1,6 @@
 console.log('object oriented js init')
+// 物件導向
+// 封裝、繼承、多型
 
 // function Foo() {}
 

@@ -11,5 +11,6 @@
 // import './js/handleNumber.js'
 // import './js/codingStyle.js'
 // import './js/objectOriented.js'
-import './js/prototype.js'
+// import './js/prototype.js'
+import './js/inherit.js'
 // import './js/this.js'
