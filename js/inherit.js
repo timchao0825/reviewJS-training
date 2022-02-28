@@ -1,12 +1,12 @@
 console.log('inherit js init')
-function show(a, b){
-  console.log(this , a , b)
+function show(a, b) {
+  console.log(this, a, b)
 }
-// show(1 , 2)
-// show.call([] , 2 , 3)
+// show(1, 2)
+// show.call([], 2, 3)
 
 function base() {
-  console.log(this , arguments)
+  console.log(this, arguments)
 }
 // call {參數1 , 參數2} , apply {[陣列]}
 // base.call({} , 'john')
@@ -18,16 +18,18 @@ function base() {
 // var callbind = base.bind({name:'bind test 2'} , 5)
 // callbind(10 , 15) // {name:'binde test 2'} , [5 ,10 , 15]
 
-function testObject(name , age){
-  this.name = name;
+function testObject(name, age) {
+  this.name = name
   this.age = age
 }
 
-// // var newObj = new testObject('new object' , 100)
-// // console.log(newObj)
-var a = {}
-testObject.call(a , 'test' , 30)
-console.log(a)
+var newObj = new testObject('new object', 100)
+// var newObj = testObject('test', 10)
+// var newObj = ('name', 100)
+// console.log(newObj)
+// var a = {}
+// testObject.call(a, 'test', 30)
+// console.log(a)
 
 // MDN example
 // var animals = [
@@ -43,3 +45,24 @@ console.log(a)
 //     this.print();
 //   }).call(animals[i], i);
 // }
+
+// prototype
+
+function A() {
+  this.abc = 12
+  this.run = function () {
+    console.log('go')
+  }
+}
+
+A.prototype.show = function () {
+  console.log(this.abc)
+}
+
+function B() {
+  A.call(this)
+}
+var aObj = new A()
+var bObj = new B()
+// aObj.show() // 12
+// bObj.show() // error , call not prototype show
