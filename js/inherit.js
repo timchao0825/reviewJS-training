@@ -48,8 +48,9 @@ var newObj = new testObject('new object', 100)
 
 // prototype
 
-function A() {
-  this.abc = 12
+function A(abc) {
+  this.abc = abc || 12
+  console.log('A prototype')
   this.run = function () {
     console.log('go')
   }
@@ -62,7 +63,52 @@ A.prototype.show = function () {
 function B() {
   A.call(this)
 }
-var aObj = new A()
-var bObj = new B()
+function C() {
+  A.apply(this, arguments)
+}
+
+// var aObj = new A()
+// var bObj = new B()
 // aObj.show() // 12
 // bObj.show() // error , call not prototype show
+
+// 原型繼承
+// B.prototype = A.prototype // 會影響到原始父類別
+// B.prototype = new A() // 避免共享參考方法
+C.prototype = new A() // conosle A prototype 1
+// var newObj = new B()
+// console.log('newObj => ', newObj)
+// newObj.show()
+
+// var objA = new A()
+// var objB = new B()
+B.prototype.square = function () {
+  console.log('this abc ** ==>', this.abc * this.abc)
+}
+C.prototype.square = function () {
+  console.log('this abc ** ==>', this.abc * this.abc)
+}
+// objB.square()
+
+//繼承父類別
+var objC = new C(11) // conosle A prototype 2
+objC.square()
+
+// 共享參考
+// var arr1 = [1, 2, 3]
+// var arr2 = arr1
+// arr2.push(4)
+
+// console.log('arr1 => ', arr1)
+// console.log('arr2 => ', arr2)
+
+// 避免共享參考
+// var arr1 = [1, 2, 3]
+// var arr2 = arr1
+// // var arr2 = arr1.slice()
+// arr2.push(4)
+// console.log('arr1 => ', arr1)
+// console.log('arr2 => ', arr2)
+// arr2 = null
+// console.log('arr1 => ', arr1)
+// console.log('arr2 => ', arr2)
