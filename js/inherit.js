@@ -75,7 +75,7 @@ function C() {
 // 原型繼承
 // B.prototype = A.prototype // 會影響到原始父類別
 // B.prototype = new A() // 避免共享參考方法
-C.prototype = new A() // conosle A prototype 1
+// C.prototype = new A() // conosle A prototype 1
 // var newObj = new B()
 // console.log('newObj => ', newObj)
 // newObj.show()
@@ -91,8 +91,34 @@ C.prototype.square = function () {
 // objB.square()
 
 //繼承父類別
-var objC = new C(11) // conosle A prototype 2
-objC.square()
+// var objC = new C(11) // conosle A prototype 2
+// objC.square()
+
+// 暫時繼承父類別
+Function.prototype.inherits = function(superCtor){
+  function F(){}
+  F.prototype = superCtor.prototype
+  this.prototype = new F()
+  this.super = superCtor.prototype
+  this.prototype.constructor = this
+}
+function AA(abc) {
+    this.abc = abc || 12
+    console.log('AA Class')
+}
+AA.prototype.show = function () {
+  console.log(abc)
+}
+function BB(){
+  AA.apply(this , arguments)
+}
+BB.inherits(AA)
+var objAA = new BB()
+BB.prototype.square = function(){
+  console.log(this.abc * this.abc)
+}
+console.log(BB.prototype)
+objAA.square()
 
 // 共享參考
 // var arr1 = [1, 2, 3]
