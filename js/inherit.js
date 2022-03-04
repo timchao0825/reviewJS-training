@@ -104,21 +104,27 @@ Function.prototype.inherits = function(superCtor){
 }
 function AA(abc) {
     this.abc = abc || 12
-    console.log('AA Class')
+    console.log('AA class function')
 }
 AA.prototype.show = function () {
-  console.log(abc)
+  console.log('AA class show fun')
 }
 function BB(){
   AA.apply(this , arguments)
 }
+
 BB.inherits(AA)
-var objAA = new BB()
+var objBB = new BB()
+BB.prototype.show = function(){
+  console.log('BB class show fun')
+}
 BB.prototype.square = function(){
   console.log(this.abc * this.abc)
 }
-console.log(BB.prototype)
-objAA.square()
+// console.log(BB.prototype)
+objBB.square()
+objBB.show()
+// objBB.constructor.super.show()
 
 // 共享參考
 // var arr1 = [1, 2, 3]
