@@ -96,11 +96,15 @@ C.prototype.square = function () {
 
 // 暫時繼承父類別
 Function.prototype.inherits = function(superCtor){
-  function F(){}
-  F.prototype = superCtor.prototype
-  this.prototype = new F()
-  this.super = superCtor.prototype
-  this.prototype.constructor = this
+  // console.log(superCtor)
+  // function F(){}
+  // F.prototype = superCtor.prototype
+  // this.prototype = new F()
+  // this.super = superCtor.prototype
+  // this.prototype.constructor = this
+}
+Function.prototype.test = function(superCtor) {
+  console.log('function prototype test func')
 }
 function AA(abc) {
     this.abc = abc || 12

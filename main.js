@@ -14,3 +14,4 @@
 // import './js/prototype.js'
 import './js/inherit.js'
 // import './js/this.js'
+// import './js/multiplicationTable.js'
