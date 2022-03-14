@@ -12,6 +12,7 @@
 // import './js/codingStyle.js'
 // import './js/objectOriented.js'
 // import './js/prototype.js'
-import './js/inherit.js'
+// import './js/inherit.js'
 // import './js/this.js'
 // import './js/multiplicationTable.js'
+import './js/designPatten.js'
