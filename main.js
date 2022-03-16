@@ -15,4 +15,4 @@
 // import './js/inherit.js'
 // import './js/this.js'
 // import './js/multiplicationTable.js'
-import './js/designPatten.js'
+import './js/designPattern.js'
