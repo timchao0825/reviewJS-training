@@ -77,28 +77,56 @@ console.log('design pattern js init')
 
 // 迭代器模式
 // 只允許操縱定好的方式，確保資料的正確性
-var iterator = (function () {
-  var index = 0,
-    data = [1, 2, 3, 4, 5],
-    length = data.length
-  return {
-    next() {
-      index = index + 1
-    },
-    hasNext() {
-      return index < length
-    },
-    first() {
-      index = 0
-    },
-    current() {
-      return data[index]
-    }
-  }
-})()
+// var iterator = (function () {
+//   var index = 0,
+//     data = [1, 2, 3, 4, 5],
+//     length = data.length
+//   return {
+//     next() {
+//       index = index + 1
+//     },
+//     hasNext() {
+//       return index < length
+//     },
+//     first() {
+//       index = 0
+//     },
+//     current() {
+//       return data[index]
+//     }
+//   }
+// })()
 
-iterator.first()
-while (iterator.hasNext()) {
-  console.log(iterator.current())
-  iterator.next()
+// iterator.first()
+// while (iterator.hasNext()) {
+//   console.log(iterator.current())
+//   iterator.next()
+// }
+
+// 裝飾者模式
+// 將原本物件加上功能或強化目標的新增功能
+// 原本物件也必須得設計成容易強化
+function Computer(){
+  this.price = function(){
+    return 41900;
+  }
 }
+function addMemory(computer){
+  var price = computer.price()
+  computer.price = function(){
+    return price + 10000
+  }
+}
+function addThirdParty(computer){
+  var price = computer.price()
+  computer.price = function(){
+    return price + 3000
+  }
+}
+
+let nb = new Computer()
+console.log(nb.price())
+addMemory(nb)
+console.log('add Memory' , nb.price())
+addThirdParty(nb)
+console.log('add Third Party' , nb.price())
