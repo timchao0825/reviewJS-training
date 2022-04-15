@@ -106,27 +106,65 @@ console.log('design pattern js init')
 // 裝飾者模式
 // 將原本物件加上功能或強化目標的新增功能
 // 原本物件也必須得設計成容易強化
-function Computer(){
-  this.price = function(){
-    return 41900;
-  }
+// function Computer(){
+//   this.price = function(){
+//     return 41900;
+//   }
+// }
+// function addMemory(computer){
+//   var price = computer.price()
+//   computer.price = function(){
+//     return price + 10000
+//   }
+// }
+// function addThirdParty(computer){
+//   var price = computer.price()
+//   computer.price = function(){
+//     return price + 3000
+//   }
+// }
+
+// let nb = new Computer()
+// console.log(nb.price())
+// addMemory(nb)
+// console.log('add Memory' , nb.price())
+// addThirdParty(nb)
+// console.log('add Third Party' , nb.price())
+
+// 策略模式
+// 模式可依照不同情況選擇不同的策略方式，基本上使用的操作介面
+// 也可依照不同的程式運作
+
+const data = {
+  name: 'john',
+  message: 'hello there'
 }
-function addMemory(computer){
-  var price = computer.price()
-  computer.price = function(){
-    return price + 10000
-  }
+
+function Sender(strategy){
+  this.strategy = strategy
 }
-function addThirdParty(computer){
-  var price = computer.price()
-  computer.price = function(){
-    return price + 3000
+
+Sender.prototype.send = function(data) {
+  return this.strategy.send(data)
+}
+
+var handleStrategy = {
+  send: function(){
+    console.log(data)
+    var str = `<xml><name>${data.name}</name></xml>`
+    return str
   }
 }
 
-let nb = new Computer()
-console.log(nb.price())
-addMemory(nb)
-console.log('add Memory' , nb.price())
-addThirdParty(nb)
-console.log('add Third Party' , nb.price())
+var johnStategy = {
+  send: function() {
+    var str = JSON.stringify(data)
+    return str
+  }
+}
+
+var sender = new Sender(handleStrategy)
+
+var result = sender.send(data)
+
+console.log(result)
