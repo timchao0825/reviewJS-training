@@ -135,36 +135,75 @@ console.log('design pattern js init')
 // 模式可依照不同情況選擇不同的策略方式，基本上使用的操作介面
 // 也可依照不同的程式運作
 
-const data = {
-  name: 'john',
-  message: 'hello there'
-}
+// const data = {
+//   name: 'john',
+//   message: 'hello there'
+// }
 
-function Sender(strategy){
-  this.strategy = strategy
-}
+// function Sender(strategy){
+//   this.strategy = strategy
+// }
 
-Sender.prototype.send = function(data) {
-  return this.strategy.send(data)
-}
+// Sender.prototype.send = function(data) {
+//   return this.strategy.send(data)
+// }
 
-var handleStrategy = {
-  send: function(){
-    console.log(data)
-    var str = `<xml><name>${data.name}</name></xml>`
-    return str
+// var handleStrategy = {
+//   send: function(){
+//     console.log(data)
+//     var str = `<xml><name>${data.name}</name></xml>`
+//     return str
+//   }
+// }
+
+// var johnStategy = {
+//   send: function() {
+//     var str = JSON.stringify(data)
+//     return str
+//   }
+// }
+
+// var sender = new Sender(handleStrategy)
+
+// var result = sender.send(data)
+
+// console.log(result)
+
+// 外觀模式 (常見的設計模式)
+// 子系統中的一組介面提供一個統一個高層介面，使得子系統容易使用，簡化複雜的操作流程
+// 生活範例：生活中買電腦，聯絡電腦公司告知預算與需求，幫你組一台電腦
+var cpu = {
+  execute:function(){
+    console.log('execute')
   }
 }
 
-var johnStategy = {
-  send: function() {
-    var str = JSON.stringify(data)
-    return str
+var memory = {
+  load:function(){
+    console.log('load')
   }
 }
 
-var sender = new Sender(handleStrategy)
+var hdd = {
+  write:function(){
+    console.log('write')
+  }
+}
 
-var result = sender.send(data)
+var computer = {
+  work:function(value){
+    memory.load()
+    cpu.execute()
+    hdd.write()
+    console.log('work', value)
+  }
+}
 
-console.log(result)
+var user = {
+  main: function(){
+    computer.work(1)
+    computer.work(2)
+  }
+}
+
+user.main()
